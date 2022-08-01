@@ -13,7 +13,7 @@ export default {
     setup(){
         function initPark3dModel() {
             const tileset=viewer.scene.primitives.add(new Cesium.Cesium3DTileset({
-                url: "  /apps/3dtitle/贝尔园区场景模型/tileset.json",
+                url: " static/3dtitle/贝尔园区场景模型/tileset.json",
             })); 
             tileset.readyPromise
                 .then(function (tileset) {
@@ -23,6 +23,10 @@ export default {
                 console.log("出错了"+error);
             });
         };
+        function initInternetThings() {
+            const InternetThings=viewer.scene.primitives.add(new Cesium.Cesium3DTileset({ url: "static/model/物联网设备/tileset.json" }));
+            viewer.scene.primitives.add(InternetThings);
+        }
         onMounted(() => {
             Cesium.Ion.defaultAccessToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiIzZWFkZjMzMS1kZTk1LTQyY2EtOTA0MC1kOGMxMWIyYzEwNTQiLCJpZCI6OTk0MzksImlhdCI6MTY1NjQ4Nzg2NX0.xAxSGKj9QR2uMMhkXLDqciQ_vb0CyYGJY0iLvMFOOmI";
             window.viewer = window.viewer ||new Cesium.Viewer("cesiumContainer",{
@@ -47,11 +51,13 @@ export default {
                 viewer.resolutionScale = window.devicePixelRatio;
             }
             initPark3dModel()
+            initInternetThings()
         })
 
 
         return {
             initPark3dModel,
+            initInternetThings
         }
     },
     

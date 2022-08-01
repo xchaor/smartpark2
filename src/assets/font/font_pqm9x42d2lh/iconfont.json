@@ -1,0 +1,44 @@
+{
+  "id": "",
+  "name": "",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "1320055",
+      "name": "功能管理",
+      "font_class": "gongnengguanli",
+      "unicode": "e620",
+      "unicode_decimal": 58912
+    },
+    {
+      "icon_id": "5387518",
+      "name": "首页",
+      "font_class": "shouye",
+      "unicode": "eaf0",
+      "unicode_decimal": 60144
+    },
+    {
+      "icon_id": "8400529",
+      "name": "物联网",
+      "font_class": "wulianwang",
+      "unicode": "e62a",
+      "unicode_decimal": 58922
+    },
+    {
+      "icon_id": "21053824",
+      "name": "人员",
+      "font_class": "renyuan",
+      "unicode": "e689",
+      "unicode_decimal": 59017
+    },
+    {
+      "icon_id": "24981052",
+      "name": "监控",
+      "font_class": "jiankong",
+      "unicode": "e6af",
+      "unicode_decimal": 59055
+    }
+  ]
+}

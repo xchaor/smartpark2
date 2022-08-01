@@ -2,23 +2,24 @@ const path = require("path");
 const CopyPlugin = require("copy-webpack-plugin");
 const webpack = require("webpack");
 const cesiumSource = "./node_modules/cesium/Source";
-
+const { VantResolver } = require('unplugin-vue-components/resolvers');
+const ComponentsPlugin = require('unplugin-vue-components/webpack');
 
 module.exports = {
-  devServer: {
-    port: 8080,
-    open: true,
-    proxy: {
-      //配置代理服务器来解决跨域问题
-      "/api": {
-        target: "http://localhost:80/api/", //配置要替换的后台接口地址
-        changOrigin: true, //配置允许改变Origin
-        pathRewrite: {
-          "^/api/": "/",
-        },
-      },
-    },
-  },
+  // devServer: {
+  //   port: 8080,
+  //   open: true,
+  //   proxy: {
+  //     //配置代理服务器来解决跨域问题
+  //     "/api": {
+  //       target: "http://localhost:80/api/", //配置要替换的后台接口地址
+  //       changOrigin: true, //配置允许改变Origin
+  //       pathRewrite: {
+  //         "^/api/": "/",
+  //       },
+  //     },
+  //   },
+  // },
   lintOnSave: false,
 
   configureWebpack: {
@@ -53,6 +54,10 @@ module.exports = {
     }),
     new webpack.DefinePlugin({
       CESIUM_BASE_URL: JSON.stringify("./"),
+    }),
+
+    ComponentsPlugin({
+      resolvers: [VantResolver()],
     }),
   ],
     module: {

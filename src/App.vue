@@ -1,14 +1,22 @@
 <template>
-  <Map></Map>
+  <div id="app">
+    <Map></Map>
+    <Interface></Interface>
+  </div>
 </template>
 
 <script>
 import Map from './components/Map.vue';
+import Interface from '@/components/Interface.vue'
 export default {
-    components: { Map }
+    name:'App',
+    components: { Map,Interface }
 }
 </script>
 
-<style>
-
+<style lang='less'>
+.app{
+  position: relative;
+  
+}
 </style>
