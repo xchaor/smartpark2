@@ -1,16 +1,27 @@
 <template>
-      <div class="info_buttons">
-        <div class="button">人员统计</div>
-        <div class="button">车辆统计</div>
-        <div class="button">智能告警</div>
-        <div class="button">重点监控</div>
-        <div class="button">资产统计</div>
-    </div>
+  首页平台
 </template>
 
 <script>
-export default {
+import { onMounted, } from 'vue'
+import { useStore } from "vuex";
 
+export default {
+  name:'Home',
+  setup(){
+    const store=useStore()
+
+    function flyTo() {
+      const viewPoints=require('@/jsons/cream.json')
+      store.commit('FLYTOPOINT',viewPoints[0])
+    }
+    onMounted(() => {
+      flyTo()
+    });
+    return{
+        flyTo
+    }
+  },
 }
 </script>
 
