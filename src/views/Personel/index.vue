@@ -297,6 +297,8 @@ export default {
           };
         }
         function peopleTrack(i, t) {
+           //移除浮动框点击事件
+          shapeEditMenu.onclick=null
           var dronePromise;
           var flyNumber;
           var type;
