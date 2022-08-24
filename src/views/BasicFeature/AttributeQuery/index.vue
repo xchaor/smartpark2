@@ -94,7 +94,6 @@ export default {
         function editHandler3dtitle(x, y, lon, lat, height,mx,my) {
             const cesiumContainer=document.querySelector("#cesiumContainer")
             cesiumContainer.appendChild(shapeEditMenu)
-            console.log();
             shapeEditMenu.style.display = "block";
             shapeEditMenu.style.left = x + "px";
             shapeEditMenu.style.top = y + "px";

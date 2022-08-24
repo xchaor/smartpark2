@@ -282,7 +282,6 @@ export default {
           }
         }
         function editHandlerTrack(x, y, index, type) {
-          console.log("人员组件editHandlerTrack()被调用了");
           var trackArrResult = trackArr[Number(index) - 1];
           var vote = {};
           vote.lon = trackArrResult[1];
@@ -328,7 +327,6 @@ export default {
           handler.setInputAction(function (movement){
           const pickingEntity=viewer.scene.pick(movement.position);
           if(pickingEntity.id !== undefined ){
-            console.log('点在了图标上');
             show.value=true
           }
           },Cesium.ScreenSpaceEventType.LEFT_CLICK)
@@ -372,7 +370,6 @@ export default {
     }
 
     onMounted(()=>{
-      console.log('人员监控');
       //初始化弹窗
       shapeEditMenu.style = `
       position:absolute;

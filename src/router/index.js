@@ -48,7 +48,12 @@ const routes = [
             path:'routeList',
             component:()=>import('@/views/BasicFeature/RouteTravel/RouteList'),
             name:'RouteList'
-          }
+          },
+          {
+            path:'addRoute',
+            component:()=>import('@/views/BasicFeature/RouteTravel/AddRoute'),
+            name:'AddRoute'
+          },
         ]
       },
       {

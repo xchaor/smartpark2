@@ -16,7 +16,7 @@
 <script>
 import * as Cesium from "cesium/Cesium";
 import {useStore} from 'vuex' 
-import { onMounted,onBeforeUnmount,reactive } from 'vue'
+import { onMounted,onBeforeUnmount,reactive, watch } from 'vue'
 import hideNavBtn from '@/hooks/hideNavBtn'
 // Toast
 import { Toast } from 'vant';
@@ -34,7 +34,6 @@ export default {
         function measureAreaSpace () {
             removeMeasure()
             removeTip()
-            console.log('开始绘制测量');
             viewer.cesiumWidget.screenSpaceEventHandler.removeInputAction(Cesium.ScreenSpaceEventType.LEFT_DOUBLE_CLICK);
             //鼠标事件
             handler = new Cesium.ScreenSpaceEventHandler(viewer.scene._imageryLayerCollection);
@@ -55,7 +54,6 @@ export default {
                     }
                 }
             }, Cesium.ScreenSpaceEventType.MOUSE_MOVE);
-            // }, Cesium.ScreenSpaceEventType.LEFT_CLICK);
             handler.setInputAction(function (movement) {
                 let ray = viewer.camera.getPickRay(movement.position);
                 cartesian = viewer.scene.globe.pick(ray, viewer.scene);
@@ -88,8 +86,6 @@ export default {
                 }
             }, Cesium.ScreenSpaceEventType.LEFT_CLICK);
 
-
-
             handler.setInputAction(function (movement) {
                 handler.destroy();
                 positions.pop();
@@ -118,6 +114,8 @@ export default {
                 state.areapointArray = areaArray;
             }, Cesium.ScreenSpaceEventType.LEFT_DOUBLE_CLICK);
 
+
+
             var radiansPerDegree = Math.PI / 180.0;//角度转化为弧度(rad)
             var degreesPerRadian = 180.0 / Math.PI;//弧度转化为角度
 
@@ -133,7 +131,6 @@ export default {
                     var dis_temp1 = distance(positions[i], positions[j]);
                     var dis_temp2 = distance(positions[j], positions[k]);
                     res += dis_temp1 * dis_temp2 * Math.abs(Math.sin(totalAngle));
-                    // console.log(res);
                 }
                 return (res ).toFixed(2);
             }
@@ -231,13 +228,14 @@ export default {
         }
         function removeTip() {
             Toast.clear()
-            console.log("关闭提示");
         }
+
         onMounted(()=>{
             addTip()
         })
         onBeforeUnmount(()=>{
             removeTip()
+            store.dispatch('clearArrAll')
         })
         return {
             onClickLeft,store,state,measureAreaSpace,removeMeasure

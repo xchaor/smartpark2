@@ -21,12 +21,10 @@ export default {
       store.commit('FLYTOPOINT',viewPoints[1])
     }
     function addBillboard() {
-      console.log('添加公告牌');
       const params={
         data:[]
       };
       const modelAttributes=require('../../../public/static/model/attributes_GeoJSON.json')
-      console.log(modelAttributes);
       attributesArr=modelAttributes.features
       let icon
       for (var i = 0; i < attributesArr.length; i++) {
@@ -173,7 +171,6 @@ export default {
     }
     
     onMounted(()=>{
-      console.log('智能运维');
       addBillboard()
       clickHandler()
       flyTo()

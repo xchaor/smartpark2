@@ -6,18 +6,18 @@
     @click-left="onClickLeft"
     fixed
     />
-    <div class="options">
-        <div class="optionItem">
+    <div class="options" >
+        <router-link class="optionItem" to="/routeTravel/addRoute" >
             <img src="../../../assets/images/icons/huabi.png" alt="">
-            <span>绘制</span>
-        </div>
-            <router-link class="optionItem" to="/routeTravel/routeList">
-                <img src="../../..//assets/images/icons/list.png" alt="">
-                <span>列表</span>
-            </router-link>
+            <span >绘制</span>
+        </router-link>
+        <router-link class="optionItem" to="/routeTravel/routeList">
+            <img src="../../..//assets/images/icons/list.png" alt="">
+            <span>列表</span>
+        </router-link>
     </div>
 
-    <div class="MovingControl">
+    <div class="MovingControl" >
         <van-button round type="primary" @click="MoveNPause">移动/暂停</van-button>
     </div>
     <router-view></router-view>
@@ -79,7 +79,7 @@ export default {
     .MovingControl{
         position: absolute;
         display: flex;
-        justify-content: center;
+        justify-content: space-around;
         bottom: 20px;
         width: 100vw;
     }

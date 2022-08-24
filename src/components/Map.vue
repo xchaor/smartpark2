@@ -81,7 +81,8 @@ export default {
                 font-size:10px;
                 padding:5px;
                 border:1px solid #0976C1;
-                z-index:7
+                z-index:7;
+                color:#fff
                 `
             shapeEditMenu.style.display="none"
             const cesiumContainer=document.querySelector("#cesiumContainer")
@@ -97,10 +98,11 @@ export default {
                 NumberArr: [],
                 professionArr: [], //人员轨迹记录
             };
-            // initPark3dModel()
+            initPark3dModel()
             initInternetThings()
             MouseMoveClearDis()
         });
+        
         return {
             initPark3dModel,
             initInternetThings,

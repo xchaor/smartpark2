@@ -21,7 +21,6 @@ export default {
       store.commit('FLYTOPOINT',viewPoints[2])
     }
     function addBillboard() {
-      console.log('添加公告牌');
       const params={
         data:[]
       }
@@ -216,7 +215,6 @@ export default {
         }
     }
     onMounted(()=>{
-      console.log('视频监控');
       addBillboard()
       clickHandler()
       flyTo()
