@@ -1093,7 +1093,7 @@ export default createStore({
       handler.removeInputAction(Cesium.ScreenSpaceEventType.LEFT_DOUBLE_CLICK);
       this.dispatch('clearDis');
     },
-    //清除属性信息框
+    //清除属性信息框    
     clearDis(){
       if(window.shapeEditMenu != undefined){
           shapeEditMenu.style.display = "none";
