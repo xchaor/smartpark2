@@ -1,5 +1,4 @@
 <template>
-  视频监控
     <div v-show="videoIsShow" class="videocontainer">
       <div class="iconBox_close" @click="videoIsShow=false"></div>
       <video src="@/assets/video/jiankongvideo.mp4" muted controls autopictureinpicture="false"  disablePictureInPicture controlslist="nodownload" ></video>

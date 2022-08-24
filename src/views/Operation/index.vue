@@ -1,5 +1,4 @@
 <template>
-  智能运维
 </template>
 
 <script>

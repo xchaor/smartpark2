@@ -68,9 +68,9 @@ export default {
                 state.hasPointFlag=false
             }
         },{deep:true})
+        const optionsBtns=document.querySelector('.options')
+        const controlBtns=document.querySelector('.MovingControl')
         onMounted(() => {
-            const optionsBtns=document.querySelector('.options')
-            const controlBtns=document.querySelector('.MovingControl')
             optionsBtns.style.display='none'
             controlBtns.style.display='none'
             store.dispatch('drawRoute')

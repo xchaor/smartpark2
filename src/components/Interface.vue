@@ -1,4 +1,5 @@
 <template>
+
     <div class="main_nav_buttons">
         <!-- 首页平台 -->
         <router-link replace active-class="active" to="/home"><div class="button home"> <img src="@/assets/images/icons/shouye.png" alt=""></div></router-link>
@@ -23,7 +24,7 @@
             </van-cell-group>
         </div>
     </van-popup>
-    <router-view></router-view>:
+    <router-view></router-view>
 </template>
 <script>
 import { ref,onMounted } from 'vue'

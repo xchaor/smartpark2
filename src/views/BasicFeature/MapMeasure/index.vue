@@ -199,10 +199,7 @@ export default {
         function removeMeasure () {
         if (viewer.entities.getById("distancePolyline"))
             viewer.entities.removeById("distancePolyline");
-        // 删除面积测量
-        // if (handler) {
-        //     handler.destroy();
-        // }
+
         let areaentitys = state.areapointArray;
         if (state.areapointArray) {
             if (areaentitys.length > 0) {
@@ -216,6 +213,7 @@ export default {
 
         if (viewer.entities.getById("measurePoint"))
             viewer.entities.removeById("measurePoint");
+
         //清除按钮禁用状态激活
         state.clearBtnDisable=true
         }
@@ -235,7 +233,7 @@ export default {
         })
         onBeforeUnmount(()=>{
             removeTip()
-            store.dispatch('clearArrAll')
+            removeMeasure()
         })
         return {
             onClickLeft,store,state,measureAreaSpace,removeMeasure

@@ -1,5 +1,4 @@
 <template>
-  首页平台
 </template>
 
 <script>
