@@ -290,6 +290,7 @@ export default {
           shapeEditMenu.style.left = x + "px";
           shapeEditMenu.style.top = y + "px";
           shapeEditMenu.onclick = function () {
+            console.log("点击属性框");
             //加入人员轨迹
             viewer.entities.removeAll();
             shapeEditMenu.style.display = "none";
@@ -297,6 +298,8 @@ export default {
           };
         }
         function peopleTrack(i, t) {
+          //移除浮动框点击事件
+          shapeEditMenu.onclick=null
           var dronePromise;
           var flyNumber;
           var type;
@@ -381,6 +384,7 @@ export default {
       font-size:10px;
       padding:5px;
       z-index:7;
+      color:#fff;
       border:1px solid #0976C1`
       ;
       shapeEditMenu.innerHTML=

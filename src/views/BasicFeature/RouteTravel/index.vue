@@ -18,7 +18,8 @@
     </div>
 
     <div class="MovingControl" >
-        <van-button round type="primary" @click="MoveNPause">移动/暂停</van-button>
+        <van-button round type="primary" @click="MoveNPause" :disabled="!store.state.isFlying">移动/暂停</van-button>
+        <van-button round type="danger" @click="exitFlying" :disabled="!store.state.isFlying">退出飞行</van-button>
     </div>
     <router-view></router-view>
 </template>
@@ -38,15 +39,20 @@ export default {
         const route=useRoute()
         const state=reactive({
         })
+        //移动/暂停
         function MoveNPause() {
             store.dispatch("MoveNPause")
+        }
+        //退出飞行
+        function exitFlying() {
+            store.dispatch('exitFlying')
         }
         onBeforeUnmount(()=>{
             store.dispatch('clearArrAll')
         })
         const onClickLeft = () => history.back();
         return {
-            state,store,MoveNPause,onClickLeft,
+            state,store,MoveNPause,exitFlying,onClickLeft,
         }
     }
 }

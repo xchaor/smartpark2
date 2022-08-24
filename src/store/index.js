@@ -5,7 +5,200 @@ import 'vant/es/notify/style';
 export default createStore({
   state(){
     return{
-    //路径漫游轨迹
+        /* 地图标签*/
+        viewPointArray: [
+            {
+                "createDate": "2022-07-02 15:06:37",
+                "guid": 1,
+                "name": "主视角",
+                "camera": [
+                    {
+                        "name": "position",
+                        "x": -2860332.749037736,
+                        "y": 4647974.354122533,
+                        "z": 3290120.167669924
+                    },
+                    {
+                        "name": "direction",
+                        "x": 0.2947832384593607,
+                        "y": 0.19010564717943956,
+                        "z": -0.9364628584380154
+                    },
+                    {
+                        "name": "up",
+                        "x": -0.3506891517221309,
+                        "y": 0.9331503028238961,
+                        "z": 0.07904195850359014
+                    },
+                    {
+                        "name": "right",
+                        "x": 3.55271191725529,
+                        "y": -0.5001288515567719,
+                        "z": 6.281832655417258
+                    }
+                ],
+                "cameraUse": {
+                    "1": {
+                        "x": 3.55271191725529,
+                        "y": -0.5001288515567719,
+                        "z": 6.281832655417258
+                    }
+                }
+            },
+            {
+                "createDate": "2022-07-03 15:06:51",
+                "guid": 2,
+                "name": "侧面",
+                "camera": [
+                    {
+                        "name": "position",
+                        "x": -2860192.1590962117,
+                        "y": 4648348.298639654,
+                        "z": 3289536.0281834453
+                    },
+                    {
+                        "name": "direction",
+                        "x": -0.09421790120843149,
+                        "y": -0.7694742325961886,
+                        "z": 0.631690107934567
+                    },
+                    {
+                        "name": "up",
+                        "x": -0.47594888486792936,
+                        "y": 0.592118864664766,
+                        "z": 0.6502829454176722
+                    },
+                    {
+                        "name": "right",
+                        "x": 0.5149559225380482,
+                        "y": -0.19154098851179535,
+                        "z": 0.0014928513612790795
+                    }
+                ],
+                "cameraUse": {
+                    "2": {
+                        "x": 0.5149559225380482,
+                        "y": -0.19154098851179535,
+                        "z": 0.0014928513612790795
+                    }
+                }
+            },
+            {
+                "createDate": "2022-07-05 15:07:28",
+                "guid": 3,
+                "name": "门口",
+                "camera": [
+                    {
+                        "name": "position",
+                        "x": -2860232.48757479,
+                        "y": 4648003.604541197,
+                        "z": 3289812.1003417834
+                    },
+                    {
+                        "name": "direction",
+                        "x": 0.7982267854889015,
+                        "y": 0.5728173909030784,
+                        "z": -0.1863175665551836
+                    },
+                    {
+                        "name": "up",
+                        "x": -0.41986558609838315,
+                        "y": 0.7508974833696297,
+                        "z": 0.5097703983946282
+                    },
+                    {
+                        "name": "right",
+                        "x": 4.515643893101931,
+                        "y": -0.03724883677001589,
+                        "z": 6.280266325819543
+                    }
+                ],
+                "cameraUse": {
+                    "3": {
+                        "x": 4.515643893101931,
+                        "y": -0.03724883677001589,
+                        "z": 6.280266325819543
+                    }
+                }
+            },
+            {
+                "createDate": "2022-07-05 15:08:36",
+                "guid": 4,
+                "name": "鸟瞰",
+                "camera": [
+                    {
+                        "name": "position",
+                        "x": -2860497.2597352625,
+                        "y": 4648447.425231509,
+                        "z": 3290077.3903143983
+                    },
+                    {
+                        "name": "direction",
+                        "x": 0.4451647192229298,
+                        "y": -0.7263594806702818,
+                        "z": -0.5236700083063464
+                    },
+                    {
+                        "name": "up",
+                        "x": -0.419364417040824,
+                        "y": 0.3475988406619264,
+                        "z": -0.8386349215782126
+                    },
+                    {
+                        "name": "right",
+                        "x": 2.9656975736031534,
+                        "y": -1.5648814800150528,
+                        "z": 0
+                    }
+                ],
+                "cameraUse": {
+                    "4": {
+                        "x": 2.9656975736031534,
+                        "y": -1.5648814800150528,
+                        "z": 0
+                    }
+                }
+            },
+            {
+                "createDate": "2020-12-23 15:08:43",
+                "guid": 5,
+                "name": "水面",
+                "camera": [
+                    {
+                        "name": "position",
+                        "x": -2860296.457439772,
+                        "y": 4648051.177703553,
+                        "z": 3289866.3079465386
+                    },
+                    {
+                        "name": "direction",
+                        "x": 0.43362494288891934,
+                        "y": -0.7190519770470459,
+                        "z": -0.5430779531607925
+                    },
+                    {
+                        "name": "up",
+                        "x": -0.4751825524551617,
+                        "y": 0.32960463725885003,
+                        "z": -0.8158200322005212
+                    },
+                    {
+                        "name": "right",
+                        "x": 2.9074042219801437,
+                        "y": -1.541154343648293,
+                        "z": 0
+                    }
+                ],
+                "cameraUse": {
+                    "5": {
+                        "x": 2.9074042219801437,
+                        "y": -1.541154343648293,
+                        "z": 0
+                    }
+                }
+            }
+        ],
+        /*路径漫游*/
         flyLoadArr: [
             {
                 "name": "轨迹一",
@@ -563,207 +756,14 @@ export default createStore({
         theFlyStopTime:null,
         flyExection:undefined,
         flyPoints : [],
+        isFlying:false,
         defaultFlyHeight : 100, //默认飞行点高度
-    // 视点标签
-        viewPointArray: [
-            {
-                "createDate": "2022-07-02 15:06:37",
-                "guid": 1,
-                "name": "主视角",
-                "camera": [
-                    {
-                        "name": "position",
-                        "x": -2860332.749037736,
-                        "y": 4647974.354122533,
-                        "z": 3290120.167669924
-                    },
-                    {
-                        "name": "direction",
-                        "x": 0.2947832384593607,
-                        "y": 0.19010564717943956,
-                        "z": -0.9364628584380154
-                    },
-                    {
-                        "name": "up",
-                        "x": -0.3506891517221309,
-                        "y": 0.9331503028238961,
-                        "z": 0.07904195850359014
-                    },
-                    {
-                        "name": "right",
-                        "x": 3.55271191725529,
-                        "y": -0.5001288515567719,
-                        "z": 6.281832655417258
-                    }
-                ],
-                "cameraUse": {
-                    "1": {
-                        "x": 3.55271191725529,
-                        "y": -0.5001288515567719,
-                        "z": 6.281832655417258
-                    }
-                }
-            },
-            {
-                "createDate": "2022-07-03 15:06:51",
-                "guid": 2,
-                "name": "侧面",
-                "camera": [
-                    {
-                        "name": "position",
-                        "x": -2860192.1590962117,
-                        "y": 4648348.298639654,
-                        "z": 3289536.0281834453
-                    },
-                    {
-                        "name": "direction",
-                        "x": -0.09421790120843149,
-                        "y": -0.7694742325961886,
-                        "z": 0.631690107934567
-                    },
-                    {
-                        "name": "up",
-                        "x": -0.47594888486792936,
-                        "y": 0.592118864664766,
-                        "z": 0.6502829454176722
-                    },
-                    {
-                        "name": "right",
-                        "x": 0.5149559225380482,
-                        "y": -0.19154098851179535,
-                        "z": 0.0014928513612790795
-                    }
-                ],
-                "cameraUse": {
-                    "2": {
-                        "x": 0.5149559225380482,
-                        "y": -0.19154098851179535,
-                        "z": 0.0014928513612790795
-                    }
-                }
-            },
-            {
-                "createDate": "2022-07-05 15:07:28",
-                "guid": 3,
-                "name": "门口",
-                "camera": [
-                    {
-                        "name": "position",
-                        "x": -2860232.48757479,
-                        "y": 4648003.604541197,
-                        "z": 3289812.1003417834
-                    },
-                    {
-                        "name": "direction",
-                        "x": 0.7982267854889015,
-                        "y": 0.5728173909030784,
-                        "z": -0.1863175665551836
-                    },
-                    {
-                        "name": "up",
-                        "x": -0.41986558609838315,
-                        "y": 0.7508974833696297,
-                        "z": 0.5097703983946282
-                    },
-                    {
-                        "name": "right",
-                        "x": 4.515643893101931,
-                        "y": -0.03724883677001589,
-                        "z": 6.280266325819543
-                    }
-                ],
-                "cameraUse": {
-                    "3": {
-                        "x": 4.515643893101931,
-                        "y": -0.03724883677001589,
-                        "z": 6.280266325819543
-                    }
-                }
-            },
-            {
-                "createDate": "2022-07-05 15:08:36",
-                "guid": 4,
-                "name": "鸟瞰",
-                "camera": [
-                    {
-                        "name": "position",
-                        "x": -2860497.2597352625,
-                        "y": 4648447.425231509,
-                        "z": 3290077.3903143983
-                    },
-                    {
-                        "name": "direction",
-                        "x": 0.4451647192229298,
-                        "y": -0.7263594806702818,
-                        "z": -0.5236700083063464
-                    },
-                    {
-                        "name": "up",
-                        "x": -0.419364417040824,
-                        "y": 0.3475988406619264,
-                        "z": -0.8386349215782126
-                    },
-                    {
-                        "name": "right",
-                        "x": 2.9656975736031534,
-                        "y": -1.5648814800150528,
-                        "z": 0
-                    }
-                ],
-                "cameraUse": {
-                    "4": {
-                        "x": 2.9656975736031534,
-                        "y": -1.5648814800150528,
-                        "z": 0
-                    }
-                }
-            },
-            {
-                "createDate": "2020-12-23 15:08:43",
-                "guid": 5,
-                "name": "水面",
-                "camera": [
-                    {
-                        "name": "position",
-                        "x": -2860296.457439772,
-                        "y": 4648051.177703553,
-                        "z": 3289866.3079465386
-                    },
-                    {
-                        "name": "direction",
-                        "x": 0.43362494288891934,
-                        "y": -0.7190519770470459,
-                        "z": -0.5430779531607925
-                    },
-                    {
-                        "name": "up",
-                        "x": -0.4751825524551617,
-                        "y": 0.32960463725885003,
-                        "z": -0.8158200322005212
-                    },
-                    {
-                        "name": "right",
-                        "x": 2.9074042219801437,
-                        "y": -1.541154343648293,
-                        "z": 0
-                    }
-                ],
-                "cameraUse": {
-                    "5": {
-                        "x": 2.9074042219801437,
-                        "y": -1.541154343648293,
-                        "z": 0
-                    }
-                }
-            }
-        ],
-
     }
-
   },
   getters: {
   },
   mutations: {
+/* 地图标签*/
     //添加视点标签
      async ADDVIEWPOINT(state,pointName){
         if(pointName == "" || pointName == null){
@@ -791,6 +791,18 @@ export default createStore({
     DELETEVIEWPOINT(state,guid){
         state.viewPointArray= state.viewPointArray.filter(viewPoint=> viewPoint.guid!==guid)
     },
+    //进入视点标签
+    FLYTOPOINT(state,rowData){
+        viewer.camera.flyTo({
+            destination : {x:rowData.camera[0].x, y:rowData.camera[0].y, z:rowData.camera[0].z},
+            orientation : {
+                heading : rowData.camera[3].x,
+                pitch :rowData.camera[3].y,
+                roll :rowData.camera[3].z
+            }
+        });
+    },
+/*路径漫游*/
     //绘制飞行路径
     DRAWROUTE(state){
         state.flyPoints=[];
@@ -861,6 +873,12 @@ export default createStore({
             state.flyPoints = [];
         }
     },
+    //删除飞行路径
+    DELETEFLYROUTE(state,name){
+        state.flyLoadArr=state.flyLoadArr.filter((route)=>{
+          return route.name!==name
+        })
+    },
     //开始飞机路径
     FLYTOMODEL(state,name){
         var flyRoad=null;
@@ -872,17 +890,9 @@ export default createStore({
                 break
             }
         }
+        state.isFlying=true
         //清除所有绘制与添加痕迹
         viewer.entities.removeAll();
-        // //切换视点到第一个点
-        // viewer.camera.setView({
-        //     destination : Cesium.Cartesian3.fromDegrees(flyRoad.flyPoints[0].lon, flyRoad.flyPoints[0].lat, flyRoad.flyPoints[0].height+1000),
-        //     orientation: {
-        //         heading : Cesium.Math.toRadians(0.0), //默认值north
-        //         pitch : Cesium.Math.toRadians(-90.0), // 默认值down
-        //         roll : 0.0 //默认值
-        //     }
-        // });
         //运动暂停
         viewer.clock.shouldAnimate   = false;
         var info = flyRoad.flyPoints; //飞行点信息
@@ -951,7 +961,7 @@ export default createStore({
         // 设置始终停止时间
         viewer.clock.stopTime = stop.clone();
         // 时间速率，数字越大时间过的越快
-        viewer.clock.multiplier = 200  //拓展，速度控制
+        viewer.clock.multiplier = 20  //拓展，速度控制
         // 循环执行 
         viewer.clock.clockRange = Cesium.ClockRange.CLAMPED; //行为方式 CLAMPED可停止、LOOP_STOP循环、UNBOUNDED 一直沿着时间行进
         var property = computeFlight(info, start);
@@ -1012,6 +1022,13 @@ export default createStore({
         };
         viewer.clock.onTick.addEventListener(state.flyExection);
     },
+    //退出飞行状态
+    EXITFLYING(state){
+        this.dispatch('clearArrAll')
+        state.isFlying=false
+        state.theFlyStopTime=null
+        state.flyExection=undefined
+    },
     //飞行暂停
     MOVENPAUSE(){
         if(viewer.clock.shouldAnimate){
@@ -1020,24 +1037,18 @@ export default createStore({
             viewer.clock.shouldAnimate   = true;
         }
     },
-    //删除飞行路径
-    DELETEFLYROUTE(state,name){
-      state.flyLoadArr=state.flyLoadArr.filter((route)=>{
-        return route.name!==name
-      })
-    },
-    FLYTOPOINT(state,rowData){
-      viewer.camera.flyTo({
-        destination : {x:rowData.camera[0].x, y:rowData.camera[0].y, z:rowData.camera[0].z},
-        orientation : {
-            heading : rowData.camera[3].x,
-            pitch :rowData.camera[3].y,
-            roll :rowData.camera[3].z
-        }
-    });
-    }
   },
   actions: {
+    /* 地图标签*/
+    addViewPoint(context,pointName){
+        context.commit("ADDVIEWPOINT",pointName)
+    },
+    deleteViewPoint(context,guid){
+        context.commit("DELETEVIEWPOINT",guid)
+    },
+    flyToPoint(context,rowData){
+        context.commit("FLYTOPOINT",rowData)
+    },
     //日期格式化
     formatDate(context,nd){
         var y = nd.getFullYear();
@@ -1055,11 +1066,12 @@ export default createStore({
         return date;
     },
 
-    
+    /*路径漫游*/
     //绘制路径
     drawRoute(context){
         context.commit('DRAWROUTE')
     },
+    //保存路径
     safeRoute(context,data){
         for(var i=0;i<this.state.flyLoadArr.length;i++){
             if(this.state.flyLoadArr[i].name == data.routeName) {
@@ -1077,6 +1089,9 @@ export default createStore({
     //飞行暂停
     MoveNPause(context){
         context.commit('MOVENPAUSE')
+    },
+    exitFlying(context){
+        context.commit('EXITFLYING')
     },
     //删除飞行路径
     deleteFlyRoute(context,name){

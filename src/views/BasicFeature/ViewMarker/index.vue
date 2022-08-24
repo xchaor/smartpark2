@@ -9,7 +9,7 @@
         @click-right="addItem"
         />
         <van-swipe-cell v-for="(item,index) in storeState.viewPointArray.value" :key="index" >
-            <van-cell   :title="item.name" :label="item.createDate" @click="onClick(item)" />
+            <van-cell   :title="item.name" :label="item.createDate" @click="toViewPoint(item)" />
             <template #right>
                 <van-button square class="delete-button" type="danger" text="删除" @click="deleteHandler(item.guid)" />
             </template>
@@ -48,25 +48,26 @@ export default {
         const storeState=useState({viewPointArray:state=>state.viewPointArray})
         //返回按钮
         const onClickLeft = () => history.back();
-        //添加单元格
+        //点击添加弹出输入框
         function addItem() {   
             state.show=true
         }
+        //确认添加视点
         function confirm(pointName) {
-            store.commit("ADDVIEWPOINT",pointName)
+            store.dispatch("addViewPoint",pointName)
             state.viewPointName=''
         }
-        //点击单元格
-        function onClick(data) {
+        //点击单元格切换cesium镜头
+        function toViewPoint(data) {
             history.back();
-            store.commit('FLYTOPOINT',data)
+            store.dispatch('flyToPoint',data)
         }
         //删除单元格
         function deleteHandler(guid) {
-            store.commit("DELETEVIEWPOINT",guid)
+            store.dispatch("deleteViewPoint",guid)
         }
         return {
-            state,storeState,onClickLeft,addItem,onClick,deleteHandler,confirm,
+            state,storeState,onClickLeft,addItem,toViewPoint,deleteHandler,confirm,
         }
     },
 }

@@ -19,7 +19,7 @@ export default {
         hideNavBtn()//隐藏主导航按钮
         const onClickLeft = () => history.back();
         const store=useStore()
-
+        // 属性浮动框初始化
         function shapeEditMenuInit() {
             shapeEditMenu.style = `
                 position:absolute;
@@ -35,6 +35,7 @@ export default {
                 ;
             shapeEditMenu.style.display = "none";
         }
+        //点击事件处理
         function clickHandler() {
             handler.setInputAction(function (click){
             const pickingEntity=viewer.scene.pick(click.position);
@@ -91,6 +92,7 @@ export default {
             }
             },Cesium.ScreenSpaceEventType.LEFT_CLICK)
         }
+        //浮动框显示位置与信息
         function editHandler3dtitle(x, y, lon, lat, height,mx,my) {
             const cesiumContainer=document.querySelector("#cesiumContainer")
             cesiumContainer.appendChild(shapeEditMenu)

@@ -135,7 +135,7 @@ export default {
           for (var i = 0; equipList.length; i++) {
             if (equipList[i].imei === imei) {
               objTable = equipList[i];
-              break;
+              break;  
             }
           }
           var textContent =
