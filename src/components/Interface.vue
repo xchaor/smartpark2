@@ -12,11 +12,19 @@
         <!-- 基础功能 -->
         <router-link replace active-class="active" to="/"><div class="button basicFeature" @click="showPopup"><img src="@/assets/images/icons/gongnengguanli.png" alt=""></div></router-link>
     </div>
-    <van-popup class="dropDownMenu" v-model:show="show" position="right" :style="{ width:'80%',height: '100%' }" >
+    <van-popup class="dropDownMenu" v-model:show="show" position="right" :style="{ width:'10%',height: '100%' }" >
         <div class="content">
             <h4>基础功能</h4>
             <van-cell-group >
-                <van-cell :icon="require('@/assets/images/icons/xiangji.png')" title="地图标签"  is-link to="/viewMarker" clickable size="large" @click="show=false" />
+                <van-cell :icon="require('@/assets/images/icons/xiangji.png')" title="地图标签"  is-link to="/viewMarker" clickable size="large" @click=showMenuClick />
+
+              <van-swipe-cell v-for="(item,index) in storeState.viewPointArray.value" :key="index" v-show="showMenu" >
+                <van-cell   :title="item.name" :label="item.createDate" @click="toViewPoint(item)" />
+                <template #right>
+                  <van-button square class="delete-button" type="danger" text="删除" @click="deleteHandler(item.guid)" />
+                </template>
+              </van-swipe-cell>
+
                 <van-cell :icon="require('@/assets/images/icons/qushuchakanshuxing2.png')" title="属性查询" is-link to="/attributeQuery" clickable size="large" @click="show=false" />
                 <van-cell :icon="require('@/assets/images/icons/cemianji.png')" title="地图量算"  is-link to="/mapMeasure" clickable size="large" @click="show=false" />
                 <van-cell :icon="require('@/assets/images/icons/feijichangtianchong.png')" title="路径漫游"  is-link to="/routeTravel" clickable size="large" @click="show=false" />
@@ -27,11 +35,19 @@
     <router-view></router-view>
 </template>
 <script>
-import { ref,onMounted } from 'vue'
+import { reactive,ref,onMounted } from 'vue'
 import { useStore } from "vuex";
 import { useRouter , useRoute } from 'vue-router'
+import hideNavBtn from "@/hooks/hideNavBtn";
+import {useState} from "@/hooks/useState";
+
 export default {
     name:'Interface',
+  data() {
+    return {
+      showMenu: false,
+    }
+  },
     setup() {
         const router=useRouter()
         const route=useRoute()
@@ -55,8 +71,49 @@ export default {
         onMounted(()=>{
             getCurrentIndex()
         })
-        return {show,showPopup,getCurrentIndex,}
-    }
+
+
+
+
+      // const VanDialog = Dialog.Component;
+      // hideNavBtn()//隐藏主导航按钮
+      const state=reactive({
+        viewPointName:'',
+        show: false
+      })
+      //视点标签数据数组对象
+      const storeState=useState({viewPointArray:state=>state.viewPointArray})
+      //返回按钮
+      const onClickLeft = () => history.back();
+      //点击添加弹出输入框
+      function addItem() {
+        state.show=true
+      }
+      //确认添加视点
+      function confirm(pointName) {
+        store.dispatch("addViewPoint",pointName)
+        state.viewPointName=''
+      }
+      //点击单元格切换cesium镜头
+      function toViewPoint(data) {
+        history.back();
+        store.dispatch('flyToPoint',data)
+      }
+      //删除单元格
+      function deleteHandler(guid) {
+        store.dispatch("deleteViewPoint",guid)
+      }
+
+
+      return { state,storeState,onClickLeft,addItem,toViewPoint,deleteHandler,confirm,show,showPopup,getCurrentIndex,}
+    },
+  methods: {
+    showMenuClick() {
+     this.show = false;
+     this.showMenu = !this.showMenu;
+    },
+
+  },
 
 }
 </script>

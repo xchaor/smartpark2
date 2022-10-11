@@ -6,20 +6,40 @@ const { VantResolver } = require('unplugin-vue-components/resolvers');
 const ComponentsPlugin = require('unplugin-vue-components/webpack');
 
 module.exports = {
-  // devServer: {
-  //   port: 8080,
-  //   open: true,
-  //   proxy: {
-  //     //配置代理服务器来解决跨域问题
-  //     "/api": {
-  //       target: "http://localhost:80/api/", //配置要替换的后台接口地址
-  //       changOrigin: true, //配置允许改变Origin
-  //       pathRewrite: {
-  //         "^/api/": "/",
-  //       },
-  //     },
-  //   },
-  // },
+  devServer: {
+    port: 8080,
+    open: true,
+    proxy: {
+      '/jeecg-boot': {
+        // target: 'http://crystal.5gkh.org.cn:8080',
+        target: 'http://xinhua.cubesatgarage.com',
+        ws: false,
+        changeOrigin: true
+      },
+      '/geoserver': {
+        // target: 'http://crystal.5gkh.org.cn:8080',
+        target: 'http://data.cubesatgarage.com:29393',
+        ws: false,
+        changeOrigin: true
+      },
+      '/rts3d': {
+        // target: 'http://crystal.5gkh.org.cn:8080',
+        target: 'http://data.cubesatgarage.com:8888',
+        ws: false,
+        changeOrigin: true
+      },
+    }
+    // proxy: {
+    //   //配置代理服务器来解决跨域问题
+    //   "/api": {
+    //     target: "http://localhost:80/api/", //配置要替换的后台接口地址
+    //     changOrigin: true, //配置允许改变Origin
+    //     pathRewrite: {
+    //       "^/api/": "/",
+    //     },
+    //   },
+    // },
+  },
   lintOnSave: false,
 
   configureWebpack: {
@@ -76,5 +96,5 @@ module.exports = {
         },
       ],
     },
-  },
+  }
 };

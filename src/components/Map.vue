@@ -8,6 +8,8 @@ import * as widgets from "cesium/Widgets/widgets.css";
 import * as Cesium from "cesium/Cesium";
 import {useStore} from 'vuex' 
 import { onMounted, ref,watch } from "vue";
+import {jbpost} from "../utils/request"
+
 export default {
     name:'Map',
     setup(){
@@ -97,9 +99,30 @@ export default {
                 NumberArr: [],
                 professionArr: [], //人员轨迹记录
             };
+          function loginTest() {
+            let url = '/jeecg-boot/sys/loginNoCode'
+            let loginParams = {
+              username: 'admin',
+              password: '123456',
+              captcha: '',
+              checkKey: '',
+              remember_me: true,
+            }
+            jbpost(url, loginParams).then((res) => {
+              console.log(res)
+              if (res.data.success) {
+                localStorage.setItem('crystalToken', res.data.result.token)
+                console.log(res)
+              }
+
+            }).catch((err) => {
+              console.log(err)
+            });
+          }
             initPark3dModel()
             initInternetThings()
             MouseMoveClearDis()
+            loginTest()
         });
         
         return {
@@ -108,8 +131,12 @@ export default {
             MouseMoveClearDis
             }
     },
+  methods: {
+
+  }
+  }
     
-}
+
 </script>
 
 <style>

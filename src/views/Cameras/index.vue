@@ -243,6 +243,7 @@ export default {
       width: 100%;
     }
     .iconBox_close{
+      z-index: 18;
       position: absolute;
       bottom: 1rem;
       right: 1rem;
